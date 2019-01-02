@@ -8,5 +8,6 @@ namespace _01Valtozok
 {
     public class Class1
     {
+
     }
 }
