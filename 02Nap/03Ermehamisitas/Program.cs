@@ -6,7 +6,7 @@ namespace _03Ermehamisitas
     {
         static void Main(string[] args)
         {
-            var coin = new Coin();
+            Coin coin = new FakeCoin();
             Console.WriteLine($"Az érmefeldobás eredménye: ");
             for (int i = 0; i < 100; i++)
             {
