@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _02SikidomokTerulete
 {
@@ -22,10 +23,23 @@ namespace _02SikidomokTerulete
             //előző művelet rövidítve
             areasum += triangle.Area();
 
+            Console.WriteLine($"A területek összege: {areasum}");
+
             //profibb munka (mi van, ha több száz síkidom területét kell összeadni):
 
+            var planes = new List<IPlane>();
+            planes.Add(square);
+            planes.Add(triangle);
+            planes.Add(circle);
 
-            Console.WriteLine($"A területek összege: {areasum}");
+            var sum = 0;
+
+            foreach (var plane in planes)
+            {
+                sum += plane.Area();
+            }
+
+            Console.WriteLine($"A területek összege: {sum}");
 
             Console.ReadLine();
         }
