@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01ValtozokCore", "01Valtozo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02SikidomokTerulete", "02SikidomokTerulete\02SikidomokTerulete.csproj", "{0BDD24C4-6BE3-4EBF-AC7E-544F8C9B96D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03Ermehamisitas", "03Ermehamisitas\03Ermehamisitas.csproj", "{D5E7B2E7-5D0E-44EF-B858-DA082A2CF355}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0BDD24C4-6BE3-4EBF-AC7E-544F8C9B96D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BDD24C4-6BE3-4EBF-AC7E-544F8C9B96D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BDD24C4-6BE3-4EBF-AC7E-544F8C9B96D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5E7B2E7-5D0E-44EF-B858-DA082A2CF355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E7B2E7-5D0E-44EF-B858-DA082A2CF355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E7B2E7-5D0E-44EF-B858-DA082A2CF355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E7B2E7-5D0E-44EF-B858-DA082A2CF355}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
