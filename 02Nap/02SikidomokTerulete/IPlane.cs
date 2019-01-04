@@ -4,6 +4,6 @@
     {
         //a public kulcsszóra itt nincs szükség, mert ami a felületen látszik, az publikus
         //aminek nem kell látszania, az nem látszik
-        int Area();
+        double Area();
     }
 }
