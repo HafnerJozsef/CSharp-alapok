@@ -2,13 +2,14 @@
 
 namespace _02SikidomokTerulete
 {
-    public class Plane
+    public abstract class Plane
     {
-        public int Area()
-        {
-            //elméletileg nem hülyeség
-            return 0;
-        }
+        //mivel  nincs általános síkidom területszámítás, ide nem tudunk érvényes implementációt adni
+        //van viszont absztakt függvény (ez egyben virtual is)
+
+            //absztakt fgv-t csak absztrakt osztályban lehet létrehozni
+        public abstract double Area();
+        
 
 
     }

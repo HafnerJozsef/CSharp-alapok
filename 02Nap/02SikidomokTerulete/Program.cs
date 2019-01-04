@@ -28,7 +28,7 @@ namespace _02SikidomokTerulete
 
             //profibb munka (mi van, ha több száz síkidom területét kell összeadni):
 
-            var planes = new List<IPlane>();
+            var planes = new List<Plane>();
             planes.Add(square);
             planes.Add(triangle);
             planes.Add(circle);
