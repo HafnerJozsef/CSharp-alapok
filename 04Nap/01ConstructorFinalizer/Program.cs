@@ -15,6 +15,12 @@ namespace _01ConstructorFinalizer
             var t = new Third();
             Console.WriteLine();
 
+            b = new Base("ez az alaposztály");
+            Console.WriteLine();
+
+            b = new Base("ez az alaposztály", "alap@alap.hu");
+            Console.WriteLine();
+
             Console.ReadLine();
         }
     }
