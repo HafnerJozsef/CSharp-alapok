@@ -32,5 +32,10 @@
 
         public bool IsInitiated { get; private set; }
         public string Email { get; }
+
+        ~Base()
+        {
+            System.Console.WriteLine("Véglegesítő: ~Base()");
+        }
     }
 }

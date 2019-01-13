@@ -10,5 +10,10 @@
         {
             System.Console.WriteLine("Third létrehozó: Third(string name, string email)");
         }
+
+        ~Third()
+        {
+            System.Console.WriteLine("Véglegesítő: ~Third()");
+        }
     }
 }
