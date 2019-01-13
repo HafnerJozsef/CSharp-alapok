@@ -35,7 +35,7 @@
 
         ~Base()
         {
-            System.Console.WriteLine("Véglegesítő: ~Base()");
+            System.Console.WriteLine($"Véglegesítő: ~Base(), name: {Name}, email: {Email}");
         }
     }
 }

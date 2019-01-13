@@ -30,6 +30,17 @@ namespace _01ConstructorFinalizer
             Console.WriteLine($"név: {t.Name}, email: {t.Email}");
             Console.WriteLine();
 
+            //takarítás előkészítése
+
+            b = null;
+            m = null;
+            t = null;
+
+            //ki kell kény szeríteni a takarítást - nem általánosan használandó!!!!
+
+            GC.Collect();
+
+
             Console.ReadLine();
         }
     }
