@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace _01IDisposable
 {
     public class ItselfCleaner : IDisposable
     {
-        private bool isDisposed = false;
         //első példa: menedzselt stream, de IDisposable felületet implementál
         private Stream fileStream = new FileStream("file.txt",FileMode.Create);
         //második példa : menedzselt lista, de nagy méretű
@@ -15,8 +15,7 @@ namespace _01IDisposable
         //harmadik példa: nem menedzselt memória
         private IntPtr unmanagedMemory = IntPtr.Zero;
 
-        
-
+        private int isDisposed = 0;
 
         public ItselfCleaner()
         {
@@ -28,6 +27,34 @@ namespace _01IDisposable
             //nem menedzselt memória lefoglalása
             unmanagedMemory = Marshal.AllocHGlobal(1000000);
             GC.AddMemoryPressure(1000000);
+        }
+
+        public int FuggvenyAmiFigyelADisposeRa()
+        {
+            EnsureNotDisposed();
+            return  1;
+        }
+
+        public int MyProperty
+        {
+            get
+            {
+                EnsureNotDisposed();
+                return 1;
+            }
+
+            set
+            {
+                EnsureNotDisposed();
+            }
+        }
+
+        private void EnsureNotDisposed()
+        {
+            if (isDisposed == 1)
+            {
+                throw new ObjectDisposedException(nameof(ItselfCleaner));
+            }
         }
 
         public void Dispose()
@@ -44,14 +71,17 @@ namespace _01IDisposable
 
         private void Dispose(bool dispose)
         {
-            if (isDisposed)
+
+            if (Interlocked.Exchange(ref isDisposed, 1) == 1)
             {
-                return;
+                //return;
+                //amennyiben kétszer fut le, az általában logikai hiba. Érdemest ezt hangosan jelezni!
+                throw new ObjectDisposedException(nameof (ItselfCleaner));
             }
 
             //takarítunk
 
-            if(dispose)
+            if (dispose)
             {//Dispose-l hívtuk, így a menedzselt részeket is takarítjuk
 
                 if (fileStream != null)
@@ -73,7 +103,7 @@ namespace _01IDisposable
                 GC.RemoveMemoryPressure(1000000);
             }
 
-            isDisposed = true;
+            
 
         }
     }
