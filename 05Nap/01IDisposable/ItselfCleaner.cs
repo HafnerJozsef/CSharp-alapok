@@ -32,29 +32,40 @@ namespace _01IDisposable
 
         public void Dispose()
         {
-            
-            if(isDisposed)
+
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        ~ItselfCleaner()
+        {
+            Dispose(false);
+        }
+
+        private void Dispose(bool dispose)
+        {
+            if (isDisposed)
             {
                 return;
             }
 
             //takarítunk
 
-            fileStream.Dispose();
-            fileStream = null;
+            if(dispose)
+            {//Dispose-l hívtuk, így a menedzselt részeket is takarítjuk
+                fileStream.Dispose();
+                fileStream = null;
 
-            managedMemory.Clear();
-            managedMemory = null;
+                managedMemory.Clear();
+                managedMemory = null;
+
+            }           
 
             Marshal.FreeHGlobal(unmanagedMemory);
             GC.RemoveMemoryPressure(1000000);
 
             isDisposed = true;
-        }
 
-        ~ItselfCleaner()
-        {
-            Dispose();
         }
     }
 }
