@@ -53,16 +53,25 @@ namespace _01IDisposable
 
             if(dispose)
             {//Dispose-l hívtuk, így a menedzselt részeket is takarítjuk
-                fileStream.Dispose();
-                fileStream = null;
 
-                managedMemory.Clear();
-                managedMemory = null;
+                if (fileStream != null)
+                {
+                    fileStream.Dispose();
+                    fileStream = null;
+                }
+                if (managedMemory != null)
+                {
+                    managedMemory.Clear();
+                    managedMemory = null;
+                }
 
-            }           
+            }
 
-            Marshal.FreeHGlobal(unmanagedMemory);
-            GC.RemoveMemoryPressure(1000000);
+            if (unmanagedMemory != IntPtr.Zero)
+            {
+                Marshal.FreeHGlobal(unmanagedMemory);
+                GC.RemoveMemoryPressure(1000000);
+            }
 
             isDisposed = true;
 
