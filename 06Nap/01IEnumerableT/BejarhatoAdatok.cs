@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace _01IEnumerableT
 {
-    public class BejarhatoAdatok
+    public class BejarhatoAdatok<TAdat>
     {
-        List<Adat> adatok = new List<Adat>();
+        List<TAdat> adatok = new List<TAdat>();
         #region Adatok karbantartására szolgáló felület
-        public void Add(Adat adat)
+        public void Add(TAdat adat)
         {
             adatok.Add(adat);
         }
 
-        public bool Remove(Adat adat)
+        public bool Remove(TAdat adat)
         {
            return adatok.Remove(adat);
         }
