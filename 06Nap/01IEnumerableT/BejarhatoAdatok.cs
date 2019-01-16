@@ -7,6 +7,7 @@ namespace _01IEnumerableT
     public class BejarhatoAdatok<TAdat> : IEnumerable<TAdat>, IEnumerator<TAdat>
     {
         List<TAdat> adatok = new List<TAdat>();
+        int position = -1;
 
         #region Adatok karbantartására szolgáló felület
         public void Add(TAdat adat)
@@ -34,14 +35,15 @@ namespace _01IEnumerableT
 
         #region IEnumerator<T> implementáció
 
-        public TAdat Current => throw new NotImplementedException();
+        public TAdat Current {get { return adatok[position]; } }
 
-        object IEnumerator.Current => throw new NotImplementedException();
+        object IEnumerator.Current { get { return Current; } }
 
 
         public bool MoveNext()
         {
-            throw new NotImplementedException();
+            position++;
+            return position < adatok.Count;
         }
 
         public void Reset()
@@ -51,7 +53,7 @@ namespace _01IEnumerableT
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //mivel most nincs takarítanivalónk, nem kell implementálni
         }
         #endregion IEnumerator<T> implementáció
     }

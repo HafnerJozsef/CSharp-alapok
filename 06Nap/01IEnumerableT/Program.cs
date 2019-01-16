@@ -15,6 +15,11 @@ namespace _01IEnumerableT
             adatok.Add(new Adat(szam: 1, szoveg: "Burgonya"));
             adatok.Add(new Adat(szam: 1, szoveg: "Só"));
 
+            foreach (var item in adatok)
+            {
+                Console.WriteLine($"Adat szám: {adat.Szam}, szöveg: {item.Szoveg}");
+            }
+
             Console.ReadLine();
         }
     }
