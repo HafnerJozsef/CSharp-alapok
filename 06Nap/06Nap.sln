@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01IEnumerableT", "01IEnumerableT\01IEnumerableT.csproj", "{D1D7AD17-381C-474E-8EA6-A3A03AA894AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01IEnumerableT", "01IEnumerableT\01IEnumerableT.csproj", "{D1D7AD17-381C-474E-8EA6-A3A03AA894AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02Exceptions", "02Exceptions\02Exceptions.csproj", "{414FA527-A5E7-4120-986E-4AEA24A3AFCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D1D7AD17-381C-474E-8EA6-A3A03AA894AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1D7AD17-381C-474E-8EA6-A3A03AA894AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1D7AD17-381C-474E-8EA6-A3A03AA894AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414FA527-A5E7-4120-986E-4AEA24A3AFCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414FA527-A5E7-4120-986E-4AEA24A3AFCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414FA527-A5E7-4120-986E-4AEA24A3AFCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414FA527-A5E7-4120-986E-4AEA24A3AFCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
