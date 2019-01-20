@@ -60,7 +60,7 @@ namespace _02Exeptions
             try
             {
                 Console.WriteLine("Alprogram try indul");
-
+                    throw new ConfuseCurrencyException("Euro utalást kellene végezni, de a megadott számla HUF!");
                 Console.WriteLine("Alprogram try végez");
             }
             catch (Exception)
