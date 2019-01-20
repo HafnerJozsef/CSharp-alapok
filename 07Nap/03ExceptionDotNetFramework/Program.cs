@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace _02Exeptions
+namespace _03ExceptionDotNetFramework
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
+
 
             try
             {
@@ -20,7 +24,7 @@ namespace _02Exeptions
             {
                 Console.WriteLine("Main catch indul");
                 Console.WriteLine($"Alprogram: {ex.ToString()}");
-                throw;
+                throw new ApplicationException("Main saját kivétel", ex);
                 Console.WriteLine("Main catch végez");
             }
             finally
@@ -46,7 +50,7 @@ namespace _02Exeptions
             {
                 Console.WriteLine("FoProgram catch indul");
                 Console.WriteLine($"Alprogram: {ex.ToString()}");
-                throw;
+                throw new ApplicationException("Főprogram saját kivétel", ex); 
                 Console.WriteLine("FoProgram catch végez");
             }
             finally
@@ -62,14 +66,14 @@ namespace _02Exeptions
             try
             {
                 Console.WriteLine("Alprogram try indul");
-                    throw new ConfuseCurrencyException("Euro utalást kellene végezni, de a megadott számla HUF!");
+                throw new Exception("Euro utalást kellene végezni, de a megadott számla HUF!");
                 Console.WriteLine("Alprogram try végez");
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Alprogram catch indul");
                 Console.WriteLine($"Alprogram: {ex.ToString()}");
-                throw;
+                throw new ApplicationException("Alprogram saját kivétel", ex);
                 Console.WriteLine("Alprogram catch végez");
             }
             finally
