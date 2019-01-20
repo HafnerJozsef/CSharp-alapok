@@ -4,9 +4,24 @@ namespace _02Exeptions
 {
     class Program
     {
+        private static void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+        {
+            Console.WriteLine($"----FirstChanseException----");
+            Console.WriteLine($"{e.Exception.ToString()}");
+            Console.WriteLine($"----FirstChanseException----");
+        }
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Console.WriteLine($"----UnhandledException----");
+            Console.WriteLine($"{((Exception)e.ExceptionObject).ToString()}");
+            Console.WriteLine($"----UnhandledException----");
+        }
+
         static void Main(string[] args)
         {
-            
+            AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
+
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             try
             {
@@ -31,6 +46,8 @@ namespace _02Exeptions
             }
 
         }
+
+
 
         private static void FoProgram()
         {
