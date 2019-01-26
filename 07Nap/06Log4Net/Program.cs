@@ -9,8 +9,13 @@ namespace _06Log4Net
 {
     class Program
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
+
         static void Main(string[] args)
         {
+            //betöltjül a log4net konfigurációt az app.configból
+            log4net.Config.XmlConfigurator.Configure();
+
             var r = new Random();
             while (!Console.KeyAvailable) //addig fut, amig nem nyomunk le egy billentyűt
             {
@@ -20,23 +25,24 @@ namespace _06Log4Net
             if (level<50)
                 { //legkisebb súlyú, delegsűrűbben előforduló (Debug)
 
+                    log.Debug($"Debug üzenet: {level}");
 
                 }
             if (level >=50 && level<70)
                 {//info
-
+                    log.Info($"Info üzenet: {level}");
                 }
             if(level>=70 && level<85)
                 {//Warning
-
+                    log.Warn($"Warn üzenet: {level}");
                 }
             if(level>=85 && level<95)
                 {//Error
-
+                    log.Error($"Error üzenet: {level}");
                 }
             if(level>=95)
                 {//Fatal
-
+                    log.Fatal($"Fatal üzenet: {level}");
                 }
                 Thread.Sleep(200);
             }
