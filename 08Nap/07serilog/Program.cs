@@ -11,8 +11,28 @@ namespace _07serilog
 
             Log.Logger = new Serilog.LoggerConfiguration()
                                             .WriteTo.Console()
+                                            .WriteTo.File(".\\serilog.log")
                                             .CreateLogger();
 
+            try
+            {
+                LogTest();
+            }
+            catch (Exception ex)
+            {
+
+                Log.Fatal(ex, "Program terminated unsuccesfully");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+
+            }
+
+        }
+
+        private static void LogTest()
+        {
             var r = new Random();
             while (!Console.KeyAvailable) //addig fut, amig nem nyomunk le egy billentyűt
             {
