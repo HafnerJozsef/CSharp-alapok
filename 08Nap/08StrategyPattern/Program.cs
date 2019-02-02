@@ -17,12 +17,24 @@ namespace _08StrategyPattern
 
             Console.WriteLine($"Párosok szorzata: {sum}");
 
-            var strategy = new SumOfOddStrategy();
+            IStrategy strategy = new SumOfOddStrategy();
+
             var storeWStrategy = new DataStoreWithStrategy(data: new int[] { 1, 3, 4, 5, 7, 8, 10, 15, 30 });
+
             storeWStrategy.SetStrategy(strategy);
+
             sum = storeWStrategy.Process();
+
             Console.WriteLine($"Páratlanok összege: {sum}");
-            
+
+            strategy = new ProductOfEventStrategy();
+
+            storeWStrategy.SetStrategy(strategy);
+
+            sum = storeWStrategy.Process();
+
+            Console.WriteLine($"Párosok szorzata: {sum}");
+        
             Console.ReadLine();
         }
     }
